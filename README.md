@@ -25,7 +25,7 @@ http://maenoh.blog.fc2.com/blog-entry-28.html
 8桁14セグLED基板の電源は +5Vです。  
 FlashAirと共通の3.3V電源でも動作するようですが、保証の限りではありません。  
 
-FlashAir(Pin#) | 圧電サウンダ | 備考
+FlashAir(Pin#) | 14セグLED基板 | 備考
 --- | --- | ---
 CLK (5) |--- | Pull-down(10korm) to GND
 CMD (2) |SI  |
@@ -35,7 +35,7 @@ DAT2(9) |--- |
 DAT3(1) |--- |
 VCC (4) |--- | 2.7～3.6V
 VSS(3,6)|G   | GND
-5V      |V   | 5V
+---     |V   | 5V
 
 
 ## Slib14SEGx8v3.lua の関数の説明  
@@ -44,7 +44,7 @@ VSS(3,6)|G   | GND
 --- | ---  
 Slib14SEGx8:setup(n_disp,led_type) | **FlashAirの端子をSPIに切り替えて、LEDの表示をクリアします**<BR>**n_disp:** 8桁14セグLED基板の接続個数<BR>**led_type:** LEDのタイプ。1:カソードコモン(AS),2:アノ－ドコモン(BS)。省略時は2。
 Slib14SEGx8:getPat(str) | **文字列に対応するLEDの表示パタンを取得します**<BR>**str:** 文字列。大文字英数字および記号が使えます
-Slib14SEGx8:write(fg,mask,bg) |***表示パタンをLEDに転送します***<BR>maskやbgを設定することでビットパタン合成が可能です。<bg>転送パタン＝(bgパタン and maskパタン）or fgパタン<BR>**fg:** foregroundパタン<BR>**mask:** マスクパタン<BR>**bg:** backgroundパタン
+Slib14SEGx8:write(fg,mask,bg) |***表示パタンをLEDに転送します***<BR>maskやbgを設定することでビットパタン合成が可能です。<BR>使い方はサンプルコードをご参照ください。<BR>**fg:** foregroundパタン<BR>**mask:** マスクパタン<BR>**bg:** backgroundパタン
 Slib14SEGx8:print(str) | **文字列に対応する表示パタンをLEDに転送します**<BR>**str:** 文字列。大文字英数字および記号が使えます
 
 
